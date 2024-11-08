@@ -47,13 +47,29 @@ $list1: $primary_color, $tertiary_color;
 	display: flex;
 	justify-content: space-between;
 	padding: 1rem 2rem;
+	padding-bottom: 0;
 	flex-direction: column;
 	&__flexbox {
+		height: 550px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		&__left {
+		&__right {
+			height: 100%;
+			width: 70%;
 			display: flex;
+			align-items: flex-end; // Added to make the image touch the bottom
+			&__image {
+				width: 100%;
+				height: auto; // Prevent the image from stretching
+				transform: translate(-10%, 0);
+			}
+		}
+		&__left {
+			height: 50%;
+			margin-bottom: 15%;
+			display: flex;
+			flex-direction: column;
 			justify-content: space-between;
 			align-items: center;
 			width: 50%;
@@ -64,8 +80,52 @@ $list1: $primary_color, $tertiary_color;
 			}
 			&__subtitle {
 				font-family: $font_family-medium;
-				font-size: 1.5rem;
+				font-size: 2.3rem;
 				color: $senary_color;
+			}
+			&__description {
+				width: 65%;
+				margin-left: 5%;
+				font-family: $font_family-medium;
+				font-size: 0.8rem;
+				color: $septenary_color;
+			}
+			&__flexbox {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				width: 55%;
+				align-self: self-start;
+				margin-left: 20%;
+				&__button {
+					&__text {
+						font-size: 1.1rem;
+						font-family: $font_family-medium;
+					}
+				}
+				&__button--left {
+					width: 48%;
+					display: flex;
+					@include button;
+					background: none;
+					color: $secondary_color;
+					border: solid 2px $secondary_color;
+					padding: 0.8rem 0.5rem;
+					align-items: center;
+					justify-content: center;
+
+					&__svg {
+						width: 1.5rem;
+						height: 1.5rem;
+						margin-left: 10%;
+						fill: $secondary_color;
+					}
+				}
+				&__button--right {
+					width: 48%;
+					@include button;
+					padding: 1rem 0.5rem;
+				}
 			}
 		}
 	}

@@ -12,15 +12,31 @@
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
+  padding-bottom: 0;
   flex-direction: column;
 }
 .header__flexbox {
+  height: 550px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.header__flexbox__left {
+.header__flexbox__right {
+  height: 100%;
+  width: 70%;
   display: flex;
+  align-items: flex-end;
+}
+.header__flexbox__right__image {
+  width: 100%;
+  height: auto;
+  transform: translate(-10%, 0);
+}
+.header__flexbox__left {
+  height: 50%;
+  margin-bottom: 15%;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 50%;
@@ -32,8 +48,67 @@
 }
 .header__flexbox__left__subtitle {
   font-family: "Gilroy-Medium", sans-serif;
-  font-size: 1.5rem;
+  font-size: 2.3rem;
   color: #002a48;
+}
+.header__flexbox__left__description {
+  width: 65%;
+  margin-left: 5%;
+  font-family: "Gilroy-Medium", sans-serif;
+  font-size: 0.8rem;
+  color: #242b33;
+}
+.header__flexbox__left__flexbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 55%;
+  align-self: self-start;
+  margin-left: 20%;
+}
+.header__flexbox__left__flexbox__button__text {
+  font-size: 1.1rem;
+  font-family: "Gilroy-Medium", sans-serif;
+}
+.header__flexbox__left__flexbox__button--left {
+  width: 48%;
+  display: flex;
+  background: #003459;
+  color: #fdfdfd;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+  font-family: "Gilroy-Medium", sans-serif;
+  background: none;
+  color: #003459;
+  border: solid 2px #003459;
+  padding: 0.8rem 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+.header__flexbox__left__flexbox__button--left:hover {
+  background: #000000;
+}
+.header__flexbox__left__flexbox__button--left__svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 10%;
+  fill: #003459;
+}
+.header__flexbox__left__flexbox__button--right {
+  width: 48%;
+  background: #003459;
+  color: #fdfdfd;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+  font-family: "Gilroy-Medium", sans-serif;
+  padding: 1rem 0.5rem;
+}
+.header__flexbox__left__flexbox__button--right:hover {
+  background: #000000;
 }
 
 .navbar {
