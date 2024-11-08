@@ -1,0 +1,141 @@
+@use "sass:color";
+$primary_color: #fceed5;
+$secondary_color: #003459;
+$tertiary_color: #ffe7ba;
+$quaternary_color: #000000;
+$quinary_color: #fdfdfd;
+$senary_color: #002a48;
+$septenary_color: #242b33;
+
+$font_family-bold: "Gilroy-Bold", sans-serif;
+$font_family-medium: "Gilroy-Medium", sans-serif;
+$font_family-regular: "Gilroy-Regular", sans-serif;
+$font_family-heavy: "Gilroy-Heavy", sans-serif;
+$font_family-light: "Gilroy-Light", sans-serif;
+$list1: $primary_color, $tertiary_color;
+
+@mixin gradient($direction: bottom, $list: $list1) {
+	background: linear-gradient($direction, $list);
+}
+@mixin button($color: $quinary_color, $bg: $secondary_color) {
+	background: $bg;
+	@if color.channel($bg, "lightness", $space: hsl) > 50% {
+		color: $color;
+	} @else {
+		color: $quinary_color;
+	}
+	padding: 1rem 3rem;
+	border: none;
+	border-radius: 3rem;
+	cursor: pointer;
+	font-family: $font_family-medium;
+	&:hover {
+		background: $quaternary_color;
+	}
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: $font_family-bold;
+	list-style: none;
+}
+.header {
+	@include gradient(to bottom, $list1);
+	color: $primary_color;
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem 2rem;
+	flex-direction: column;
+	&__flexbox {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		&__left {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 50%;
+			&__title {
+				font-family: $font_family-heavy;
+				font-size: 3rem;
+				color: $senary_color;
+			}
+			&__subtitle {
+				font-family: $font_family-medium;
+				font-size: 1.5rem;
+				color: $senary_color;
+			}
+		}
+	}
+}
+.navbar {
+	padding: 3%;
+	margin-right: 3%;
+	margin-left: 3%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	&__login {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		&__button {
+			@include button;
+			padding: 1rem 5rem;
+		}
+	}
+	&__searchbar {
+		width: 25%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		&__form {
+			width: 100%;
+			&__input {
+				width: 100%;
+				padding: 1rem 1rem 1rem 2.5rem;
+				border-radius: 3rem;
+				font-family: $font_family-medium;
+				border: none;
+				outline: none;
+			}
+			&__button {
+				position: absolute;
+				left: 0.5rem;
+				top: 50%;
+				transform: translateY(-50%);
+				padding: 0.5rem;
+				border: none;
+				outline: none;
+				background: none;
+				color: $primary_color;
+			}
+		}
+	}
+	&__logo {
+		width: 10%;
+		&__svg {
+			width: auto;
+		}
+	}
+	&__menu {
+		width: 35%;
+		&__list {
+			display: flex;
+			justify-content: space-between;
+			&__item {
+				margin-right: 1rem;
+				a {
+					color: $secondary_color;
+					text-decoration: none;
+					&:hover {
+						color: $quaternary_color;
+					}
+				}
+			}
+		}
+	}
+}

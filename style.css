@@ -1,3 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gilroy-Bold", sans-serif;
+  list-style: none;
+}
 
+.header {
+  background: linear-gradient(to bottom, #fceed5, #ffe7ba);
+  color: #fceed5;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  flex-direction: column;
+}
+.header__flexbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__flexbox__left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+}
+.header__flexbox__left__title {
+  font-family: "Gilroy-Heavy", sans-serif;
+  font-size: 3rem;
+  color: #002a48;
+}
+.header__flexbox__left__subtitle {
+  font-family: "Gilroy-Medium", sans-serif;
+  font-size: 1.5rem;
+  color: #002a48;
+}
+
+.navbar {
+  padding: 3%;
+  margin-right: 3%;
+  margin-left: 3%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar__login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar__login__button {
+  background: #003459;
+  color: #fdfdfd;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+  font-family: "Gilroy-Medium", sans-serif;
+  padding: 1rem 5rem;
+}
+.navbar__login__button:hover {
+  background: #000000;
+}
+.navbar__searchbar {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.navbar__searchbar__form {
+  width: 100%;
+}
+.navbar__searchbar__form__input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 2.5rem;
+  border-radius: 3rem;
+  font-family: "Gilroy-Medium", sans-serif;
+  border: none;
+  outline: none;
+}
+.navbar__searchbar__form__button {
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  background: none;
+  color: #fceed5;
+}
+.navbar__logo {
+  width: 10%;
+}
+.navbar__logo__svg {
+  width: auto;
+}
+.navbar__menu {
+  width: 35%;
+}
+.navbar__menu__list {
+  display: flex;
+  justify-content: space-between;
+}
+.navbar__menu__list__item {
+  margin-right: 1rem;
+}
+.navbar__menu__list__item a {
+  color: #003459;
+  text-decoration: none;
+}
+.navbar__menu__list__item a:hover {
+  color: #000000;
+}
 
 /*# sourceMappingURL=style.css.map */
