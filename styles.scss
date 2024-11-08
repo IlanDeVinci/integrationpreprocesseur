@@ -6,6 +6,10 @@ $quaternary_color: #000000;
 $quinary_color: #fdfdfd;
 $senary_color: #002a48;
 $septenary_color: #242b33;
+$octonary_color: #667479;
+$nonary_color: #00171f;
+$decenary_color: #ccd1d2;
+$transparent: transparent;
 
 $font_family-bold: "Gilroy-Bold", sans-serif;
 $font_family-medium: "Gilroy-Medium", sans-serif;
@@ -19,7 +23,8 @@ $list1: $primary_color, $tertiary_color;
 }
 @mixin button($color: $quinary_color, $bg: $secondary_color) {
 	background: $bg;
-	@if color.channel($bg, "lightness", $space: hsl) > 50% {
+	@if color.channel($bg, "lightness", $space: hsl) > 50% or $bg == $transparent
+	{
 		color: $color;
 	} @else {
 		color: $quinary_color;
@@ -38,11 +43,10 @@ $list1: $primary_color, $tertiary_color;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: $font_family-bold;
 	list-style: none;
 }
 .header {
-	@include gradient(to bottom, $list1);
+	@include gradient(to right bottom, $list1);
 	color: $primary_color;
 	display: flex;
 	justify-content: space-between;
@@ -60,43 +64,44 @@ $list1: $primary_color, $tertiary_color;
 			display: flex;
 			align-items: flex-end; // Added to make the image touch the bottom
 			&__image {
-				width: 100%;
+				width: 90%;
 				height: auto; // Prevent the image from stretching
 				transform: translate(-10%, 0);
 			}
 		}
 		&__left {
 			height: 50%;
-			margin-bottom: 15%;
+			margin-bottom: 12%;
+			margin-left: 7%;
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			align-items: center;
+			align-items: start;
 			width: 50%;
 			&__title {
 				font-family: $font_family-heavy;
-				font-size: 3rem;
+				font-size: 4rem;
 				color: $senary_color;
 			}
 			&__subtitle {
 				font-family: $font_family-medium;
-				font-size: 2.3rem;
+				font-size: 3rem;
 				color: $senary_color;
+				margin-bottom: 2%;
 			}
 			&__description {
-				width: 65%;
-				margin-left: 5%;
+				margin-top: 3%;
+				width: 80%;
 				font-family: $font_family-medium;
 				font-size: 0.8rem;
 				color: $septenary_color;
+				margin-bottom: 5%;
 			}
 			&__flexbox {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
 				width: 55%;
-				align-self: self-start;
-				margin-left: 20%;
 				&__button {
 					&__text {
 						font-size: 1.1rem;
@@ -106,9 +111,7 @@ $list1: $primary_color, $tertiary_color;
 				&__button--left {
 					width: 48%;
 					display: flex;
-					@include button;
-					background: none;
-					color: $secondary_color;
+					@include button($secondary_color, transparent);
 					border: solid 2px $secondary_color;
 					padding: 0.8rem 0.5rem;
 					align-items: center;
@@ -119,6 +122,10 @@ $list1: $primary_color, $tertiary_color;
 						height: 1.5rem;
 						margin-left: 10%;
 						fill: $secondary_color;
+					}
+					&:hover {
+						background: $secondary_color;
+						color: $quinary_color;
 					}
 				}
 				&__button--right {
@@ -131,7 +138,9 @@ $list1: $primary_color, $tertiary_color;
 	}
 }
 .navbar {
+	font-family: $font_family-bold;
 	padding: 3%;
+	padding-top: 1%;
 	margin-right: 3%;
 	margin-left: 3%;
 	display: flex;
@@ -188,7 +197,7 @@ $list1: $primary_color, $tertiary_color;
 			justify-content: space-between;
 			&__item {
 				margin-right: 1rem;
-				a {
+				&__link {
 					color: $secondary_color;
 					text-decoration: none;
 					&:hover {
@@ -198,4 +207,197 @@ $list1: $primary_color, $tertiary_color;
 			}
 		}
 	}
+}
+
+.container {
+	margin: 6%;
+	&__smalltext {
+		font-family: $font_family-medium;
+		font-size: 1rem;
+		color: $quaternary_color;
+		margin-bottom: 1%;
+	}
+}
+.maincontainer1 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	&__subtitle {
+		font-family: $font_family-medium;
+		font-size: 1.5rem;
+		color: $senary_color;
+	}
+	&__button {
+		width: 10%;
+		display: flex;
+		justify-content: space-evenly;
+		@include button($secondary_color, transparent);
+		padding: 0.8rem 1rem;
+		border: 2px solid $secondary_color;
+		&:hover {
+			background: $secondary_color;
+			color: $quinary_color;
+		}
+	}
+}
+
+.grid {
+	margin-top: 4%;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 2rem;
+	&__item {
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		align-items: start;
+		border-radius: 1rem;
+		box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+		padding: 3%;
+		&__image {
+			width: 100%;
+			border-radius: 1rem;
+			height: auto;
+		}
+		&__title {
+			font-family: $font_family-medium;
+			font-size: 1.3rem;
+			color: $nonary_color;
+			margin-top: 5%;
+		}
+		&__subtitle {
+			font-family: $font_family-medium;
+			font-size: 1rem;
+			color: $octonary_color;
+			margin-top: 2%;
+		}
+		&__price {
+			font-family: $font_family-medium;
+			font-size: 1.1rem;
+			color: $nonary_color;
+			margin-top: 2%;
+			margin-bottom: 5%;
+		}
+	}
+}
+
+.footer {
+	@include gradient(to right bottom, $list1);
+	color: $primary_color;
+	display: flex;
+	justify-content: space-between;
+	padding: 6% 6%;
+	padding-bottom: 2%;
+	flex-direction: column;
+	font-family: $font_family-bold;
+	text-align: center;
+	&__info {
+		display: flex;
+		color: $octonary_color;
+		font-family: $font_family-medium;
+		justify-content: space-between;
+		margin-top: 3%;
+		&__copyright {
+			width: 25%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		&__flex {
+			width: 25%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		&__logo {
+			width: 50%;
+			height: 5%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			&__icon {
+				width: 20%;
+				fill: $quaternary_color;
+				&:hover {
+					fill: $secondary_color;
+				}
+			}
+		}
+	}
+	&__nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		margin-bottom: 3%;
+		&__icons {
+			display: flex;
+			justify-content: space-between;
+			width: 20%;
+			&__icon {
+				width: 3rem; // Increased width
+				height: 3rem; // Increased height
+				fill: $quaternary_color;
+				&:hover {
+					fill: $secondary_color;
+				}
+			}
+		}
+		&__list {
+			font-family: $font_family-medium;
+			display: flex;
+			justify-content: space-between;
+			width: 30%;
+			&__item {
+				margin-right: 1rem;
+				&__link {
+					text-decoration: none;
+					color: $quaternary_color;
+					&:hover {
+						color: $secondary_color;
+					}
+				}
+			}
+		}
+	}
+	&__register {
+		color: $quinary_color;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: $secondary_color;
+		border-radius: 1rem;
+		padding: 3%;
+		margin-bottom: 3%;
+		&__flex {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 70%;
+			background-color: $quinary_color;
+			padding: 0.6rem;
+			border-radius: 1rem;
+			&__input {
+				width: 70%;
+				height: 100%;
+				padding: 0.9rem 0.9rem 0.9rem 2.5rem;
+				border-radius: 0.5rem;
+				font-family: $font_family-medium;
+				border: 2px solid $decenary_color;
+			}
+			&__button {
+				@include button;
+				border-radius: 0.5rem;
+				width: 25%;
+				height: 100%;
+			}
+		}
+	}
+}
+hr {
+	border-width: 0;
+	height: 1px;
+	color: $decenary_color;
+	background-color: $decenary_color;
 }
