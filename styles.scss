@@ -10,6 +10,7 @@ $octonary_color: #667479;
 $nonary_color: #00171f;
 $decenary_color: #ccd1d2;
 $transparent: transparent;
+$tag: #00a7e7;
 
 $font_family-bold: "Gilroy-Bold", sans-serif;
 $font_family-medium: "Gilroy-Medium", sans-serif;
@@ -90,6 +91,8 @@ $list1: $primary_color, $tertiary_color;
 				margin-bottom: 2%;
 			}
 			&__description {
+				text-align: start;
+				text-justify: inter-word;
 				margin-top: 3%;
 				width: 80%;
 				font-family: $font_family-medium;
@@ -101,7 +104,7 @@ $list1: $primary_color, $tertiary_color;
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
-				width: 55%;
+				width: 65%;
 				&__button {
 					&__text {
 						font-size: 1.1rem;
@@ -209,8 +212,9 @@ $list1: $primary_color, $tertiary_color;
 	}
 }
 
-.container {
+.wrapper {
 	margin: 6%;
+
 	&__smalltext {
 		font-family: $font_family-medium;
 		font-size: 1rem;
@@ -218,6 +222,103 @@ $list1: $primary_color, $tertiary_color;
 		margin-bottom: 1%;
 	}
 }
+.container {
+	margin-top: 3%;
+	margin-bottom: 3%;
+	border-radius: 1.5rem;
+	@include gradient(to right bottom, $list1);
+	color: $primary_color;
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem 2rem;
+	padding-bottom: 0;
+	flex-direction: column;
+	&__flexbox {
+		display: flex;
+		padding-bottom: 0;
+		height: 450px;
+		justify-content: space-between;
+		align-items: center;
+		&__left {
+			height: 100%;
+			width: 70%;
+			display: flex;
+			align-items: flex-end; // Added to make the image touch the bottom
+			&__image {
+				width: 100%;
+				height: auto; // Prevent the image from stretching
+			}
+		}
+		&__right {
+			height: 50%;
+			margin-bottom: 12%;
+			margin-left: 7%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: end;
+			width: 50%;
+			&__title {
+				font-family: $font_family-heavy;
+				font-size: 4rem;
+				color: $senary_color;
+			}
+			&__subtitle {
+				font-family: $font_family-medium;
+				font-size: 3rem;
+				color: $senary_color;
+				margin-bottom: 2%;
+			}
+			&__description {
+				text-align: end;
+				margin-top: 3%;
+				width: 80%;
+				font-family: $font_family-medium;
+				font-size: 0.8rem;
+				color: $septenary_color;
+				margin-bottom: 5%;
+			}
+			&__flexbox {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				width: 65%;
+				&__button {
+					&__text {
+						font-size: 1.1rem;
+						font-family: $font_family-medium;
+					}
+				}
+				&__button--left {
+					width: 48%;
+					display: flex;
+					@include button($secondary_color, transparent);
+					border: solid 2px $secondary_color;
+					padding: 0.8rem 0.5rem;
+					align-items: center;
+					justify-content: center;
+
+					&__svg {
+						width: 1.5rem;
+						height: 1.5rem;
+						margin-left: 10%;
+						fill: $secondary_color;
+					}
+					&:hover {
+						background: $secondary_color;
+						color: $quinary_color;
+					}
+				}
+				&__button--right {
+					width: 48%;
+					@include button;
+					padding: 1rem 0.5rem;
+				}
+			}
+		}
+	}
+}
+
 .maincontainer1 {
 	display: flex;
 	justify-content: space-between;
@@ -241,12 +342,14 @@ $list1: $primary_color, $tertiary_color;
 		}
 	}
 }
-
+@mixin grid($columns: 4) {
+	display: grid;
+	grid-template-columns: repeat($columns, 1fr);
+	grid-gap: 2rem;
+}
 .grid {
 	margin-top: 4%;
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-gap: 2rem;
+	@include grid(4);
 	&__item {
 		display: flex;
 		flex-direction: column;
@@ -273,6 +376,47 @@ $list1: $primary_color, $tertiary_color;
 			margin-top: 2%;
 		}
 		&__price {
+			font-family: $font_family-medium;
+			font-size: 1.1rem;
+			color: $nonary_color;
+			margin-top: 2%;
+			margin-bottom: 5%;
+		}
+	}
+}
+
+.grid3 {
+	@include grid(3);
+	&__item {
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		align-items: start;
+		border-radius: 1rem;
+		box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+		padding: 3%;
+		&__image {
+			width: 100%;
+			height: 250px;
+			object-fit: cover;
+			border-radius: 1rem;
+		}
+		&__title {
+			font-family: $font_family-medium;
+			font-size: 1.3rem;
+			color: $nonary_color;
+			margin-top: 5%;
+		}
+		&__tag {
+			border-radius: 5rem;
+			padding: 3%;
+			background-color: $tag;
+			font-family: $font_family-medium;
+			font-size: 1rem;
+			color: $quinary_color;
+			margin-top: 2%;
+		}
+		&__description {
 			font-family: $font_family-medium;
 			font-size: 1.1rem;
 			color: $nonary_color;
