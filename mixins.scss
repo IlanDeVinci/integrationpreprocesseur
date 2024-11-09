@@ -1,0 +1,27 @@
+@use "sass:color" as color;
+@use "variables.scss" as *;
+@mixin gradient($direction: bottom, $list: $list1) {
+	background: linear-gradient($direction, $list);
+}
+@mixin button($color: $quinary_color, $bg: $secondary_color) {
+	background: $bg;
+	@if color.channel($bg, "lightness", $space: hsl) > 50% or $bg == $transparent
+	{
+		color: $color;
+	} @else {
+		color: $quinary_color;
+	}
+	padding: 1rem 3rem;
+	border: none;
+	border-radius: 3rem;
+	cursor: pointer;
+	font-family: $font_family-medium;
+	&:hover {
+		background: $quaternary_color;
+	}
+}
+@mixin grid($columns: 4) {
+	display: grid;
+	grid-template-columns: repeat($columns, 1fr);
+	grid-gap: 2rem;
+}
