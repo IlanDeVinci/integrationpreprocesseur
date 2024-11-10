@@ -181,7 +181,9 @@
 
 .wrapper {
 	margin: 6%;
-
+	&__button {
+		display: none;
+	}
 	&__smalltext {
 		font-family: $font_family-medium;
 		font-size: 1rem;
@@ -574,6 +576,7 @@ hr {
 			}
 			&__left {
 				width: 100%;
+				align-items: start;
 				&__title {
 					font-size: 3.5rem;
 				}
@@ -581,7 +584,7 @@ hr {
 					font-size: 2.5rem;
 				}
 				&__description {
-					font-size: 0.7rem;
+					font-size: 1.1rem;
 				}
 				&__flexbox {
 					width: 70%;
@@ -623,6 +626,31 @@ hr {
 		}
 	}
 	.wrapper {
+		&__button {
+			margin-top: 5%;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			@include button($secondary_color, transparent);
+			border: solid 0.2rem $secondary_color;
+			fill: $secondary_color;
+
+			&:hover {
+				background: $secondary_color;
+				color: $quinary_color;
+				svg {
+					path {
+						stroke: $quinary_color;
+					}
+				}
+			}
+			&__text {
+				font-size: 1.2rem;
+				text-align: center;
+				width: 25%;
+			}
+		}
 		&__head {
 			&__subtitle {
 				font-size: 1.3rem;
@@ -635,8 +663,15 @@ hr {
 	}
 	.container {
 		&__flexbox {
+			flex-direction: column-reverse;
+			&__left {
+				width: 100%;
+			}
 			&__right {
-				width: 60%;
+				margin-left: 0;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
 				&__title {
 					font-size: 3.5rem;
 				}
@@ -657,6 +692,7 @@ hr {
 		}
 	}
 	.grid4 {
+		grid-template-columns: repeat(2, 1fr);
 		&__item {
 			&__title {
 				font-size: 1rem;
@@ -670,7 +706,11 @@ hr {
 		}
 	}
 	.grid3 {
+		grid-template-columns: repeat(1, 1fr);
 		&__item {
+			&__image {
+				height: 400px;
+			}
 			&__title {
 				font-size: 1rem;
 			}
