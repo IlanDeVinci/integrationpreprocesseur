@@ -232,22 +232,13 @@
 	&__flexbox {
 		display: flex;
 		padding-bottom: 0;
-		height: 450px;
 		justify-content: space-between;
-		align-items: center;
-		&__left {
-			height: 100%;
-			width: 65%;
-			display: flex;
-			align-items: flex-end; // Added to make the image touch the bottom
-			&__image {
-				width: 100%;
-				height: auto; // Prevent the image from stretching
-			}
-		}
+		align-items: stretch;
+		overflow: hidden;
+		min-height: max-content;
 		&__right {
 			height: 50%;
-			margin-bottom: 12%;
+			margin-bottom: 10%;
 			margin-left: 7%;
 			display: flex;
 			flex-direction: column;
@@ -313,6 +304,18 @@
 					@include button;
 					padding: 1rem 0.5rem;
 				}
+			}
+		}
+		&__left {
+			min-height: inherit;
+			width: 65%;
+			display: flex;
+			align-items: flex-end;
+			position: relative;
+			&__image {
+				width: 100%;
+				align-self: flex-end;
+				bottom: 0;
 			}
 		}
 	}
