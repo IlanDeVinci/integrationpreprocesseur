@@ -17,12 +17,11 @@
 	padding-bottom: 0;
 	flex-direction: column;
 	&__flexbox {
-		height: 550px;
+		height: max-content;
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
+		align-items: stretch;
 		&__right {
-			height: 100%;
 			width: 70%;
 			display: flex;
 			align-items: flex-end;
@@ -528,4 +527,146 @@ hr {
 	height: 1px;
 	color: $decenary_color;
 	background-color: $decenary_color;
+}
+
+@media screen and (max-width: 1200px) {
+	.header {
+		width: 95%;
+		transform: translate(2.5%, 0);
+		&__flexbox {
+			flex-direction: column;
+			height: max-content;
+			align-items: center;
+			overflow: hidden;
+			&__right {
+				width: 100%;
+				overflow: hidden;
+				&__image {
+					width: 120%;
+				}
+			}
+			&__left {
+				width: 100%;
+				&__title {
+					font-size: 3.5rem;
+				}
+				&__subtitle {
+					font-size: 2.5rem;
+				}
+				&__description {
+					font-size: 0.7rem;
+				}
+				&__flexbox {
+					width: 70%;
+					&__button {
+						&__text {
+							font-size: 1rem;
+						}
+					}
+				}
+			}
+		}
+	}
+	.navbar {
+		&__searchbar {
+			width: 30%;
+		}
+		&__menu {
+			width: 30%;
+		}
+	}
+	.wrapper {
+		&__head {
+			&__subtitle {
+				font-size: 1.3rem;
+			}
+			&__button {
+				width: 15%;
+				padding: 0.8rem 1.5rem;
+			}
+		}
+	}
+	.container {
+		&__flexbox {
+			&__right {
+				width: 60%;
+				&__title {
+					font-size: 3.5rem;
+				}
+				&__subtitle {
+					font-size: 2.5rem;
+				}
+				&__description {
+					font-size: 0.7rem;
+				}
+				&__flexbox {
+					&__button {
+						&__text {
+							font-size: 1rem;
+						}
+					}
+				}
+			}
+		}
+	}
+	.grid4 {
+		&__item {
+			&__title {
+				font-size: 1rem;
+			}
+			&__subtitle {
+				font-size: 0.7rem;
+			}
+			&__price {
+				font-size: 1rem;
+			}
+		}
+	}
+	.grid3 {
+		&__item {
+			&__title {
+				font-size: 1rem;
+			}
+			&__tag {
+				font-size: 0.8rem;
+			}
+			&__description {
+				font-size: 1rem;
+			}
+		}
+	}
+	.footer {
+		&__info {
+			&__logo {
+				&__icon {
+					width: 15%;
+				}
+			}
+		}
+		&__nav {
+			&__icons {
+				&__icon {
+					width: 2.5rem;
+					height: 2.5rem;
+				}
+			}
+			&__list {
+				&__item {
+					&__link {
+						font-size: 0.8rem;
+					}
+				}
+			}
+		}
+		&__register {
+			& h2 {
+				font-size: 1.5rem;
+			}
+			&__flex {
+				&__input {
+					padding: 0.9rem 0.9rem 0.9rem 2.5rem;
+				}
+			}
+		}
+	}
 }
