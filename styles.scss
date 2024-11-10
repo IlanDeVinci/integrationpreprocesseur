@@ -186,6 +186,36 @@
 		color: $quaternary_color;
 		margin-bottom: 1%;
 	}
+	&__head {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		&__subtitle {
+			font-family: $font_family-medium;
+			font-size: 1.5rem;
+			color: $senary_color;
+		}
+		&__button {
+			width: 10%;
+			display: flex;
+			justify-content: space-evenly;
+			@include button($secondary_color, transparent);
+			padding: 0.8rem 1rem;
+			border: solid 0.2rem $secondary_color;
+			fill: $secondary_color;
+
+			&:hover {
+				background: $secondary_color;
+				color: $quinary_color;
+				svg {
+					path {
+						stroke: $quinary_color;
+					}
+				}
+			}
+		}
+	}
 }
 .container {
 	margin-top: 5%;
@@ -198,6 +228,7 @@
 	padding: 1rem 2rem;
 	padding-bottom: 0;
 	flex-direction: column;
+
 	&__flexbox {
 		display: flex;
 		padding-bottom: 0;
@@ -287,38 +318,7 @@
 	}
 }
 
-.maincontainer1 {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-	&__subtitle {
-		font-family: $font_family-medium;
-		font-size: 1.5rem;
-		color: $senary_color;
-	}
-	&__button {
-		width: 10%;
-		display: flex;
-		justify-content: space-evenly;
-		@include button($secondary_color, transparent);
-		padding: 0.8rem 1rem;
-		border: solid 0.2rem $secondary_color;
-		fill: $secondary_color;
-
-		&:hover {
-			background: $secondary_color;
-			color: $quinary_color;
-			svg {
-				path {
-					stroke: $quinary_color;
-				}
-			}
-		}
-	}
-}
-
-.grid {
+.grid4 {
 	margin-top: 3%;
 	@include grid(4);
 	&__item {
