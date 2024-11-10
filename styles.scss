@@ -725,20 +725,41 @@ hr {
 	.footer {
 		border-radius: 50px 50px 0 0;
 		&__info {
+			flex-direction: column-reverse;
+			align-items: center;
+			justify-content: center;
 			&__logo {
+				margin-bottom: 15%;
+				position: absolute;
 				&__icon {
-					width: 15%;
+					width: 40%;
 				}
+			}
+			&__flex {
+				width: 50%;
+				margin-top: 25%;
+				margin-bottom: 10%;
+			}
+			&__copyright {
+				width: 100%;
 			}
 		}
 		&__nav {
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
 			&__icons {
+				margin-top: 5%;
+				width: 80%;
 				&__icon {
 					width: 2.5rem;
 					height: 2.5rem;
 				}
 			}
 			&__list {
+				font-family: $font_family-bold;
+				margin-top: 5%;
+				width: 100%;
 				&__item {
 					&__link {
 						font-size: 0.8rem;
@@ -747,12 +768,21 @@ hr {
 			}
 		}
 		&__register {
+			flex-direction: column;
 			& h2 {
 				font-size: 1.5rem;
 			}
 			&__flex {
+				margin-top: 2%;
+				width: 100%;
+				flex-direction: column;
 				&__input {
+					width: 100%;
+					margin-bottom: 2%;
 					padding: 0.9rem 0.9rem 0.9rem 2.5rem;
+				}
+				&__button {
+					width: 100%;
 				}
 			}
 		}
